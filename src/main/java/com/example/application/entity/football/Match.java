@@ -13,12 +13,15 @@ public class Match {
     @Column(nullable = false)
     private LocalDate matchDate;
 
-    private Stadium stadium;
-
+    @ManyToOne
+    @JoinColumn(name = "season_id")
     private Season season;
 
-
+    @OneToOne()
+    @JoinColumn(name = "team_id")
     private Team team;
 
+    @ElementCollection()
+    @CollectionTable(name = "playerActions", joinColumns = @JoinColumn(name = "match_id"))
     private List<PlayerAction> playerActions;
 }

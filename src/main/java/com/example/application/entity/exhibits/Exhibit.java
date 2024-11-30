@@ -2,6 +2,7 @@ package com.example.application.entity.exhibits;
 
 import lombok.Data;
 
+import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -22,6 +23,7 @@ public class Exhibit {
     @Column(nullable = false)
     private boolean isPermanent;
 
-    private Set<Exhibition> exhibitions;
+    @ManyToMany(mappedBy = "exhibits", fetch = FetchType.LAZY)
+    private List<Exhibition> exhibitions;
 
 }

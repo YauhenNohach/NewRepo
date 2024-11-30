@@ -22,6 +22,7 @@ public class Curator {
     @Column
     private String specialization;
 
+    @OneToMany(mappedBy = "curator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Exhibition> exhibitions;
 
 

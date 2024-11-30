@@ -3,6 +3,7 @@ package com.example.application.entity.exhibits;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,6 +20,6 @@ public class Hall {
     @Column
     private String location;
 
-    private Set<Exhibition> exhibitions;
-
+    @ManyToMany(mappedBy = "halls")
+    private List<Exhibition> exhibitions;
 }

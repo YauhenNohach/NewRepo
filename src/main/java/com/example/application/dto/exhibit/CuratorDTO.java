@@ -12,7 +12,6 @@ public class CuratorDTO {
     private int experienceYears;
     private String specialization;
     private List<ExhibitionDTO> exhibitions;
-
 }
 
 

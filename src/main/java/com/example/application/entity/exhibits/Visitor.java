@@ -16,6 +16,10 @@ public class Visitor {
     @Column(nullable = false)
     private String name;
 
-    private List<VisitRecord> visitRecords;
+    @OneToMany(mappedBy = "visitor",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Exhibition> exhibitions;
 
+    @ElementCollection
+    @CollectionTable(name = "visitorExebitions", joinColumns = @JoinColumn(name = "visitor_id"))
+    private List<VisitRecord> visitRecords;
 }

@@ -18,10 +18,10 @@ public class Player {
     @Column(nullable = false, unique = true)
     private int jerseyNumber;
 
+    @OneToOne
+    @JoinColumn(name = "team_id")
     private Team team;
 
-    private PlayerStatistic statistics;
 
-    private List<String> trophies;
 }
 

@@ -6,11 +6,11 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
+@Embeddable
 public class VisitRecord {
     @Column(nullable = false)
     private Long exhibitionId;
 
     @Column(nullable = false)
     private LocalDate visitDate;
-
 }

@@ -17,6 +17,4 @@ public class Stadium {
 
     @Column(nullable = false)
     private String location;
-
-    private List<Match> matches;
 }

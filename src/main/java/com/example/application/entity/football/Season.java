@@ -15,5 +15,6 @@ public class Season {
     @Column(nullable = false)
     private int year;
 
+    @OneToMany(mappedBy = "season", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Match> matches;
 }

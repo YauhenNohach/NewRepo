@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,11 +28,19 @@ public class Exhibition {
     @Column(nullable = false)
     private LocalDate endDate;
 
+    @ManyToOne()
+    @JoinColumn(name = "curator_id")
     private Curator curator;
 
+    @ManyToMany
+    @JoinTable(name="exhibition_exhibit", joinColumns = @JoinColumn(name = "exhibitions_id"), inverseJoinColumns = @JoinColumn(name = "exhibits_id"))
+    private List<Exhibit> exhibits = new ArrayList<>();
 
-    private Set<Exhibit> exhibits;
+    @ManyToMany
+    @JoinTable(name= "exhibitions_halls", joinColumns = @JoinColumn(name = "exhibitions_id"), inverseJoinColumns = @JoinColumn(name="halls_id"))
+    private List<Hall> halls = new ArrayList<>();
 
-    private Set<Hall> halls;
-
+    @ManyToOne
+    @JoinColumn(name = "visitor_id")
+    private Visitor visitor;
 }

@@ -14,6 +14,7 @@ public class Coach {
     @Column(nullable = false)
     private int experienceYears;
 
-    @OneToOne(mappedBy = "coach")
+    @OneToOne()
+    @JoinColumn(name = "team_id")
     private Team team;
 }

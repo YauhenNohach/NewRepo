@@ -12,11 +12,11 @@ public class Team {
     @Column(nullable = false)
     private String name;
 
+    @OneToOne(mappedBy = "team")
+    @JoinColumn(name = "coach_id")
     private Coach coach;
 
-    private List<Player> players;
-
-    private Stadium stadium;
-
-    private List<Match> matches;
+    @OneToOne(mappedBy = "team")
+    @JoinColumn(name = "match_id")
+    private Match match;
 }
