@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: spring_boot_start
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring_boot_start
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+#  liquibase:
+#    changeLog: E:\Java\application\src\main\resources\db\changelog\db.changelog-master.yaml
+
+server:
+  port: 8081
+
+logging:
+  file:
+    name: tyz.log
+    path: /
+  level:
+    root: INFO # write in file level logging info and upper
+#    org.example.spring.database.pool.ConnectionPool: INFO
+    org.springframework.jdbc.core: TRACE #DEBUG - without parameters
