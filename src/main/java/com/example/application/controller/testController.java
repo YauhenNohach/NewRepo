@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/controll")
+@RequestMapping("/curators")
 public class testController {
     private final testService TestService;
 
-    @GetMapping("/id")
-    public CuratorDTO getCurator(@RequestParam Long id){
+    @GetMapping("/{id}")
+    public CuratorDTO getCurator(@PathVariable("id") Long id) {
         return TestService.getCuratorWithExhibition(id);
     }
 }

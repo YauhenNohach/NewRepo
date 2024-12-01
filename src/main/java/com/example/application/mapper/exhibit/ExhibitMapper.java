@@ -4,18 +4,17 @@ import com.example.application.dto.exhibit.*;
 import com.example.application.entity.exhibits.*;
 import org.mapstruct.*;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface ExhibitMapper {
 
-    @Mapping(source = "exhibitions", target = "exhibitions")
+    @Mapping(target = "exhibitions", source = "exhibitions")
     CuratorDTO toCuratorDTO(Curator curator);
 
-    @Mapping(source = "curator", target = "curator")
-    @Mapping(source = "exhibits", target = "exhibits")
-    @Mapping(source = "halls", target = "halls")
+    @Mapping(target = "curator", ignore = true)
     ExhibitionDTO toExhibitionDTO(Exhibition exhibition);
 
-    ExhibitDTO toExhibitDTO(Exhibit exhibit);
-
-    HallDTO toHallDTO(Hall hall);
+    List<ExhibitionDTO> toExhibitionDTOList(List<Exhibition> exhibitions);
 }
+

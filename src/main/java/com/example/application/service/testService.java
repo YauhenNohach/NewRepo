@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
+@Transactional
 public class testService {
     private final CuratorRepository curatorRepository;
     private final ExhibitMapper exhibitMapper;
