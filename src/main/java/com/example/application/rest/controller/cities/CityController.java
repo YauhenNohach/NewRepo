@@ -4,10 +4,7 @@ import com.example.application.dto.cities.CityDTO;
 import com.example.application.service.cities.CityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cities")
@@ -16,5 +13,14 @@ public class CityController {
 
     private final CityService cityService;
 
+    @GetMapping("/{id}")
+    public CityDTO getCity(@PathVariable Long id){
+        return cityService.getAllFields(id);
+    }
+
+    @GetMapping()
+    public CityDTO getFilterCityAndShop(@RequestParam String name){
+        return cityService.getFindCityAndShopsByName(name);
+    }
 
 }

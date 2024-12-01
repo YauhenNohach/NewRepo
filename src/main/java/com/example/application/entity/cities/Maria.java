@@ -14,4 +14,6 @@ public class Maria {
 
     private String name;
 
+    @OneToOne(mappedBy = "maria")
+    private City city;
 }

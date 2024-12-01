@@ -14,4 +14,6 @@ public class University {
 
     private String name;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private City city;
 }

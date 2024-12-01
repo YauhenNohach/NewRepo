@@ -6,6 +6,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface CityMapper {
     CityMapper INSTANCE = Mappers.getMapper(CityMapper.class);
@@ -16,10 +18,10 @@ public interface CityMapper {
     @Mapping(target = "cities", ignore = true)
     RegionDTO toDTO(Region region);
 
-    AttractionDTO toDTO(Attraction attraction);
+//    AttractionDTO toDTO(Attraction attraction);
     FactoryDTO toDTO(Factory factory);
     MariaDTO toDTO(Maria maria);
-    ShopDTO toDTO(Shop shop);
+    List<ShopDTO> toDTO(List<Shop> shop);
     UniversityDTO toDTO(University university);
 }
 

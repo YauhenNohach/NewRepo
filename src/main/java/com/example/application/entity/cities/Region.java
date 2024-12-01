@@ -3,6 +3,7 @@ package com.example.application.entity.cities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,4 +16,6 @@ public class Region {
 
     private String name;
 
+    @OneToMany(mappedBy = "region")
+    private List<City> cities = new ArrayList<>();
 }

@@ -14,4 +14,6 @@ public class Factory {
 
     private String name;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private City city;
 }
