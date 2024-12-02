@@ -18,10 +18,12 @@ public interface CityMapper {
     @Mapping(target = "cities", ignore = true)
     RegionDTO toDTO(Region region);
 
-//    AttractionDTO toDTO(Attraction attraction);
+    ShopDTO toDTO(Shop shop);
+
     FactoryDTO toDTO(Factory factory);
     MariaDTO toDTO(Maria maria);
-    List<ShopDTO> toDTO(List<Shop> shop);
     UniversityDTO toDTO(University university);
+
+    List<CityDTO> toCityDTOList(List<City> cities);
 }
 

@@ -29,11 +29,15 @@ public class CityService {
 
     public CityDTO getFindCityAndShopsByName(String name){
         var findCityAndShopsByName = cItyRepository.findCityAndShopsByName(name);
-        var getAllShops = shopRepository.findAll();
         var cityDto = CityMapper.INSTANCE.toDTO(findCityAndShopsByName);
-        var getShopsDto = CityMapper.INSTANCE.toDTO(getAllShops);
-        cityDto.setShops(getShopsDto);
         return cityDto;
     }
 
+    public int getCountCitiesWithShopsMoreThan10(){
+        return cItyRepository.countCitiesWithMoreThan10Shops();
+    }
+
+    public int getCountCitiesWithShopsMoreThan10JPQL(){
+        return cItyRepository.countCitiesWithMoreThan10ShopsJPQL();
+    }
 }
